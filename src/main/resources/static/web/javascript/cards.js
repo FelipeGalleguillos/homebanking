@@ -9,7 +9,7 @@ Vue.createApp({
         }
     },
     created(){
-        axios.get('http://localhost:8080/api/clients/current')
+        axios.get('/api/clients/current')
         .then(data=>{
             this.data=data.data
             this.debit=data.data.cards.filter(card=>card.type=="DEBITO")
@@ -47,7 +47,7 @@ Vue.createApp({
     methods:{
         deleteCard(card){
             console.log(card)
-            axios.delete(`http://localhost:8080/api/cards/${card.id}`)
+            axios.delete(`/api/cards/${card.id}`)
             .then(res=>{
                 console.log(res)
                 window.location.reload()
@@ -57,7 +57,7 @@ Vue.createApp({
         logout(){
             axios.post('/api/logout')
             .then(response => {
-                window.location.href = "http://localhost:8080/web/index.html"
+                window.location.href = "/web/index.html"
             })
         }
     }

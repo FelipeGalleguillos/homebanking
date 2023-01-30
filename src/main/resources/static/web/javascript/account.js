@@ -12,13 +12,13 @@ Vue.createApp({
         }
     },
     created() {
-        axios.get('http://localhost:8080/api/clients/current')
+        axios.get('/api/clients/current')
             .then(res => this.client = res.data)
             .catch(err => console.log(err))
 
         const queryString = location.search
         const id = new URLSearchParams(queryString).get("id")
-        axios.get("http://localhost:8080/api/accounts/" + id)
+        axios.get("/api/accounts/" + id)
             .then(data => {
                 const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', })
                 this.account = data.data
@@ -43,7 +43,7 @@ Vue.createApp({
         logout() {
             axios.post('/api/logout')
                 .then(response => {
-                    window.location.href = "http://localhost:8080/web/index.html"
+                    window.location.href = "/web/index.html"
                 })
         },
         createPDF() {

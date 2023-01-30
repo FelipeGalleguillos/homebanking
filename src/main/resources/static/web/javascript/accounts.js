@@ -12,7 +12,7 @@ Vue.createApp({
     },
     methods:{
         loadData(){
-            axios.get('http://localhost:8080/api/clients/current')
+            axios.get('/api/clients/current')
             .then(data=>{
                 this.data = data.data
                 console.log(this.data);
@@ -22,17 +22,17 @@ Vue.createApp({
         logout(){
             axios.post('/api/logout')
             .then(response => {
-                window.location.href = "http://localhost:8080/web/index.html"
+                window.location.href = "/web/index.html"
             })
         },
         createAccount(type){
-            axios.post(`http://localhost:8080/api/clients/current/accounts/${type}`)
+            axios.post(`/api/clients/current/accounts/${type}`)
             .then(response=> window.location.reload())
             .catch(err=>console.log(err))
         },
         deleteAccount(account){
             console.log(account)
-            axios.delete(`http://localhost:8080/api/accounts/${account.id}`)
+            axios.delete(`/api/accounts/${account.id}`)
             .then(res=>{
                 console.log(res)
                 window.location.reload()

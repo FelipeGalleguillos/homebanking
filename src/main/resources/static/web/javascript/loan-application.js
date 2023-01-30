@@ -11,14 +11,14 @@ Vue.createApp({
         }
     },
     created(){
-        axios.get('http://localhost:8080/api/loans')
+        axios.get('/api/loans')
         .then(data=>{
             this.loans=data.data
             console.log(this.loans)
         })
         .catch(err=>console.log(err))
 
-        axios.get('http://localhost:8080/api/clients/current')
+        axios.get('/api/clients/current')
         .then(data=>{
             this.data=data.data
         })
@@ -28,11 +28,11 @@ Vue.createApp({
         logout(){
             axios.post('/api/logout')
             .then(response => {
-                window.location.href = "http://localhost:8080/web/index.html"
+                window.location.href = "/web/index.html"
             })
         },
         apply(){
-            axios.post('http://localhost:8080/api/loans',{loanId:this.loan.id,amount:this.amount,payment:this.payment,accNumber:this.accNumber})
+            axios.post('/api/loans',{loanId:this.loan.id,amount:this.amount,payment:this.payment,accNumber:this.accNumber})
             .then(response=>{
                 window.location.reload()
                 console.log(response)
@@ -44,7 +44,7 @@ Vue.createApp({
         logout(){
                     axios.post('/api/logout')
                     .then(response => {
-                        window.location.href = "http://localhost:8080/web/index.html"
+                        window.location.href = "/web/index.html"
                     })
                 },
     }

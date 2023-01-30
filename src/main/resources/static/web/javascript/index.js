@@ -22,9 +22,9 @@ Vue.createApp({
             .then(response=>{
                 console.log(response)
                 if(this.email=="admin@mindhub.com"){
-                    window.location.href = "http://localhost:8080/manager.html"
+                    window.location.href = "/manager.html"
                 }else{
-                    window.location.href = "http://localhost:8080/web/accounts.html"
+                    window.location.href = "/web/accounts.html"
                 }
             })
             .catch(err=>{
@@ -41,7 +41,7 @@ Vue.createApp({
                 axios.post('/api/login',`email=${this.email}&password=${this.pwd}`)
                 .then(response=>{
                     setTimeout(() => {this.loginSuccess=true}, 3000);
-                window.location.href = "http://localhost:8080/web/accounts.html"
+                window.location.href = "/web/accounts.html"
                 })
                 .catch(err=>{
                     console.log(err)

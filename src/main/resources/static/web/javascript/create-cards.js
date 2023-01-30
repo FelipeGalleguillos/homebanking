@@ -8,7 +8,7 @@ Vue.createApp({
         }
     },
     created(){
-        axios.get('http://localhost:8080/api/clients/current')
+        axios.get('/api/clients/current')
         .then(data=>{
             this.data=data.data
         })
@@ -18,12 +18,12 @@ Vue.createApp({
         logout(){
             axios.post('/api/logout')
             .then(response => {
-                window.location.href = "http://localhost:8080/web/index.html"
+                window.location.href = "/web/index.html"
             })
         },
         create(){
-            axios.post('http://localhost:8080/api/clients/current/cards',`type=${this.cardType}&color=${this.cardColor}`)
-            .then(response=>window.location.href = "http://localhost:8080/web/cards.html")
+            axios.post('/api/clients/current/cards',`type=${this.cardType}&color=${this.cardColor}`)
+            .then(response=>window.location.href = "/web/cards.html")
             .catch(err=>{
                 this.msg=err.response.data
             })
