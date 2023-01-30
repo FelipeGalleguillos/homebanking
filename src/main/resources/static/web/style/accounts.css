@@ -1,6 +1,7 @@
 body{
-    background-image: url(https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80);
-    background-size: 100% 100%;
+    background-image: url(https://images.pexels.com/photos/2404843/pexels-photo-2404843.jpeg?cs=srgb&dl=pexels-frederik-s%C3%B8rensen-2404843.jpg&fm=jpg);
+    background-size: cover;
+    background-position: center;
     color: aliceblue;
     height: 100%;
 }

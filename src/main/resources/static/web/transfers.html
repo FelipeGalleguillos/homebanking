@@ -51,28 +51,41 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">transfers</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./loan-application.html">loan-apply</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./create-cards.html">create-cards</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
             <div class="cardscont">
                 <div class="d-flex justify-content-center gap-3">
-                    <h4>transfers</h4>
+                    <h2 class="contTitle">transfers</h2>
                 </div>
-                <div
-                    class="cardCont d-flex flex-column align-items-center gap-3 animate__animated animate__backInUp animate_faster">
-                    <h6>Your account</h6>
-                    <select class="form-select" aria-label="Default select example" v-model="originAcc">
-                        <option disabled value="">select your account</option>
-                        <option v-for="account in accounts" :value="account.number">{{account.number}} - Balance:
-                            ${{account.balance}}</option>
-                    </select>
-                    <h6>Destiny account</h6>
-                    <input class="textArea" type="text" placeholder="account number" v-model="destinyAcc">
-                    <h6>Description</h6>
-                    <input class="textArea" type="text" placeholder="description" v-model="description">
-                    <h6>Amount</h6>
-                    <input class="textArea" type="text" placeholder="amount" v-model="amount">
+                <div class="cardCont d-flex flex-column align-items-center gap-3 animate__animated animate__backInUp animate_faster">
+                    <div class="inputCont d-flex flex-wrap">
+                        <h5>Your account</h5>
+                        <select class="form-select" aria-label="Default select example" v-model="originAcc">
+                            <option disabled value="">select your account</option>
+                            <option v-for="account in accounts" :value="account.number">{{account.number}} - Balance:
+                                ${{account.balance}}</option>
+                        </select>
+                    </div>
+                    <div class="inputCont d-flex flex-wrap">
+                        <h5>Destiny account</h5>
+                        <input class="textArea" type="text" placeholder="account number" v-model="destinyAcc">
+                    </div>
+                    <div class="inputCont d-flex flex-wrap">
+                        <h5>Description</h5>
+                        <input class="textArea" type="text" placeholder="description" v-model="description">
+                    </div>
+                    <div class="inputCont d-flex flex-wrap">
+                        <h5>Amount</h5>
+                        <input class="textArea" type="text" placeholder="amount" v-model="amount">
+                    </div>
                     <p v-if="msg.length != 0" class="text-white bg-danger text-center">{{msg}}</p>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         transfer

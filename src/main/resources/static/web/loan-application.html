@@ -50,33 +50,46 @@
                             <li class="nav-item">
                                 <a  class="nav-link" href="./transfers.html">transfers</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">loan-apply</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./create-cards.html">create-cards</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
             <div class="cardscont">
                 <div class="d-flex justify-content-center gap-3">
-                    <h4>LOANS APPLY</h4>
+                    <h2>LOANS APPLY</h2>
                 </div>
                 <div class="d-flex flex-column align-items-center gap-4">
-                    <p>Account</p>
-                    <select class="form-select" aria-label="Default select example" v-model="accNumber">
+                    <div class="inputCont d-flex flex-wrap">
+                        <h5>Account</h5>
+                        <select class="form-select" aria-label="Default select example" v-model="accNumber">
                         <option disabled value="">Account</option>
                         <option v-for="account in data.accounts" :value="account.number">{{account.number}}</option>
                     </select>
-                    <p>Loan</p>
-                    <select class="form-select" aria-label="Default select example" v-model="loan">
+                    </div>
+                    <div class="inputCont d-flex flex-wrap">
+                        <h5>Loan</h5>
+                        <select class="form-select" aria-label="Default select example" v-model="loan">
                         <option disabled value="">Loans</option>
                         <option v-for="loan in loans" :value="loan">{{loan.name}} - amount: {{loan.maxAmount}}</option>
                     </select>
-                    <p>Amount</p>
-                    <input class="amountInput" v-model="amount" type="number" name="Amount">
-                    <p>Payments</p>
-                    <select v-if="amount != 0" class="form-select" aria-label="Default select example" v-model="payment">
+                    </div>
+                    <div class="inputCont d-flex flex-wrap">
+                        <h5>Amount</h5>
+                        <input class="amountInput" v-model="amount" type="number" name="Amount">
+                    </div>
+                    <div class="inputCont d-flex flex-wrap">
+                        <h5>Payments</h5>
+                        <select v-if="amount != 0" class="form-select" aria-label="Default select example" v-model="payment">
                         <option disabled value="">payments</option>
                         <option v-for="payment in loan.payments" :value="payment">{{payment}} payments of ${{Math.round(((loan.percentage/100*amount)+amount)/payment)}}</option>
                     </select>
-
+                    </div>
                     <a class="createbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Apply</a>
                     <p style="background-color: red; border-radius: .7rem; padding: .2rem;" v-if="msg.length != 0">{{msg}}</p>
                 </div>

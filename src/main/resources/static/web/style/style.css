@@ -1,11 +1,14 @@
 body{
     background-image: url(https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80);
-    background-size: 100% 100vh;
+    background-image: url(https://images.pexels.com/photos/2404843/pexels-photo-2404843.jpeg?cs=srgb&dl=pexels-frederik-s%C3%B8rensen-2404843.jpg&fm=jpg);
+    background-size: cover;
+    background-position: center;
     color: aliceblue;
     height: 100%;
     min-height: 100vh;
     width: 100%;
 }
+
 
 .form-select{
     color: aliceblue;
@@ -107,10 +110,16 @@ main{
     padding: .5rem;
 }
 
+.contTitle{
+    border: none;
+}
+
 .cardscont{
     color: black;
     margin-top: 1rem;
-    background-color: rgba(255, 255, 255, 0.629);
+    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='40' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0,0%,100%,1)'/><path d='M20-5V5m0 30v10m20-30v10M0 15v10'  stroke-linecap='square' stroke-width='0.5' stroke='hsla(45, 48%, 65%, 1)' fill='none'/><path d='M-5 40H5M-5 0H5m30 0h10M35 40h10M15 20h10'  stroke-linecap='square' stroke-width='0.5' stroke='hsla(45, 48%, 65%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+    background-color: rgba(255, 255, 255, 0.99);
+    backdrop-filter: 7px;
     padding: 1rem;
     border-radius: 1rem 1rem 1rem 1rem;
     backdrop-filter: blur(10px);
@@ -188,8 +197,6 @@ nav{
     transform: scale(1.05);
 }
 
-
-
 .date{
     display: flex;
     justify-content: space-between;
@@ -198,4 +205,9 @@ nav{
     display: flex;
     justify-content: center;
     background-color: black;
+}
+
+.inputCont{
+    width: 100%;
+    max-width: 350px;
 }
