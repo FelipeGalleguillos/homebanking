@@ -1,0 +1,94 @@
+body{
+    background-image: url(https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80);
+    background-size: 100% 100vh;
+    color: aliceblue;
+    height: 100vh;
+    width: 100%;
+}
+
+nav{
+    background-color: rgba(0, 0, 0, 0.677);
+    border-radius: 1rem 1rem 1rem 1rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+footer{
+    background-color: rgba(0, 0, 0, 0.834);
+    color: white;
+    position: sticky;
+    bottom: 0px;
+    height: 4rem;
+}
+
+main{
+    width: 100%;
+    max-width: 1000px;
+    height: fit-content;
+}
+
+.title{
+    background-color: rgba(0, 0, 0, 0.29);
+}
+
+h4{
+    text-align: center;
+    padding: .5rem;
+    border-radius: 1rem 1rem 1rem 1rem;
+    width: 100%;
+}
+
+.mainCont{
+    border-radius: 1rem 1rem 1rem 1rem;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.715);
+    margin-bottom: 10rem;
+}
+
+.filterCont{
+    width: 100%;
+    max-width: 350px;
+}
+
+::-webkit-calendar-picker-indicator {filter: invert(1);}
+::-webkit-datetime-edit-text { color: rgb(255, 255, 255); padding: 0 0.3em; }
+::-webkit-datetime-edit-month-field { color: rgb(255, 255, 255); }
+::-webkit-datetime-edit-day-field { color: rgb(255, 255, 255); }
+::-webkit-datetime-edit-year-field { color: rgb(255, 255, 255); }
+
+.dateInput{
+    background-color: rgba(0, 0, 0, 0.332);
+    border-radius: .5rem .5rem .5rem .5rem;
+    height: 1.5rem;
+}
+
+.title{
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+
+/* tbody, thead{
+    display: table;
+    width: 100%;
+} */
+
+table tr{
+    border-bottom: 1px solid white;
+}
+
+/* td{
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+} */
+
+.text-credit{
+    color: rgb(26, 250, 86);
+}
+
+.text-debit{
+    color: rgb(243, 67, 67);
+}
+
+

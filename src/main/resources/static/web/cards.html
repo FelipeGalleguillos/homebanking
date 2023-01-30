@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Cards</title>
+</head>
+
+<body id="app" class="d-flex flex-column align-items-center">
+    <main>
+        <div class="d-flex my-3 justify-content-center animate__animated animate__fadeIn">
+            <div class="mx-3">
+                <img class="" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" style="width: 5rem;" alt=""
+                    srcset="">
+                <img src="https://www.pngmart.com/files/5/Bank-PNG-Transparent.png" style="width: 2.5rem;" alt="">
+            </div>
+            <div class="name my-2">
+                <h3 class="text-center">Welcome {{data.firstName}} {{data.lastName}}</h3>
+            </div>
+            <div class="mx-4 d-flex flex-column align-items-center">
+                <button @click="logout()" class="bg-transparent border-0">
+                    <span style="color:aliceblue;">
+                        <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+                    </span>
+                    <p style="color:aliceblue;">Log out</p>
+                </button>
+            </div>
+        </div>
+        <div class="w-100">
+            <nav class="navbar navbar-dark navbar-expand-lg my-2 animate__animated animate__fadeIn">
+                <div class=" container-fluid">
+                    <img src="" alt="">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse px-4" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a  class="nav-link" href="./accounts.html">accounts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">cards</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  class="nav-link" href="./transfers.html">transfers</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="cardscont">
+                <div class="d-flex justify-content-center gap-3">
+                    <h4>CARDS</h4>
+                    <a v-if="data.cards.length < 6" class="createbtn" href="./create-cards.html">Create card</a>
+                </div>
+                <div class="cardCont d-flex flex-wrap justify-content-evenly animate__animated animate__backInUp animate_faster">
+                    <div class="d-flex flex-column alig-items-center" v-if="credit.length==0 && debit.length==0">
+                        <img style="height: 200px;" src="https://icons.iconarchive.com/icons/icons8/windows-8/512/City-No-Credit-Cards-icon.png" alt="">
+                        <h5 class="text-center">No cards yet...</h5>
+                    </div>
+                    <div v-if="credit.length != 0" class="g-3">
+                        <h4 class="title text-center my-3">CREDIT CARDS :</h4>
+                        <div class="d-flex justify-content-center flex-wrap g-4 flex-column gap-3">
+                            <div class="d-flex flex-column gap-3">
+                                <!--cards-->
+                                <div v-for="card in credit">
+                                    <div class="d-flex justify-content-end px-2">
+                                        <button @click="deleteCard(card)" class="btnDelete">Delete</button>
+                                    </div>
+                                    <div :class="`bankCard fw-bold ${card.color}`">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="logo">
+                                                <img class="" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" style="width: 5rem;" alt=""
+                                                    srcset="">
+                                                <img src="https://www.pngmart.com/files/5/Bank-PNG-Transparent.png" style="width: 2.5rem;" alt="">
+                                            </div>
+                                            <div class="chip">
+                                                <div class="img"></div>
+                                            </div>
+                                        </div>
+                                        <div class="number">
+                                            <h4 class="text-white">{{card.number}}</h4>
+                                        </div>
+                                        <div class="date">
+                                            <p class="text-white">from: {{card.fromDate}}</p>
+                                            <p class="text-white">thru: {{card.thruDate}}</p>
+                                            <p class="bg-light text-dark">{{card.cvv}}</p>
+                                        </div>
+                                        <div class="name">
+                                            <h5 class="text-white">{{card.cardHolder}}</h5>
+                                        </div>
+                                    </div>
+                                    <div v-if="card.thruDate < nowDate">
+                                        <p class="cardExpired">Expired card</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-if="debit.length != 0" class="g-3">
+                        <h4 class="title text-center my-3">DEBIT CARDS :</h4>
+                        <div class="d-flex justify-content-center flex-wrap g-4 flex-column gap-3">
+                            <div class="d-flex flex-column gap-3">
+                                <!--cards-->
+                                <div v-for="card in debit">
+                                    <div class="d-flex justify-content-end px-2">
+                                        <button @click="deleteCard(card)" class="btnDelete">Delete</button>
+                                    </div>
+                                    <div :class="`bankCard fw-bold ${card.color}`">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="logo">
+                                                <img class="" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" style="width: 5rem;" alt=""
+                                                    srcset="">
+                                                <img src="https://www.pngmart.com/files/5/Bank-PNG-Transparent.png" style="width: 2.5rem;" alt="">
+                                            </div>
+                                            <div class="chip">
+                                                <div class="img"></div>
+                                            </div>
+                                        </div>
+                                        <div class="number">
+                                            <h4 class="text-white">{{card.number}}</h4>
+                                        </div>
+                                        <div class="date">
+                                            <p class="text-white">from: {{card.fromDate}}</p>
+                                            <p class="text-white">thru: {{card.thruDate}}</p>
+                                            <p class="bg-light text-dark">{{card.cvv}}</p>
+                                        </div>
+                                        <div class="name">
+                                            <h5 class="text-white">{{card.cardHolder}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="w-100 d-flex">
+        <div>
+            <img class="m-2" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" style="width: 5rem;" alt=""
+                srcset="">
+                <img src="https://www.pngmart.com/files/5/Bank-PNG-Transparent.png" style="width: 2.5rem;" alt="">
+        </div>
+        <!-- <div>
+            <p>
+                <i class="fa-brands fa-instagram"></i>
+            </p>
+            <i class="fa-brands fa-whatsapp"></i>
+        </div> -->
+    </footer>
+    <script src="https://kit.fontawesome.com/3098ea35a3.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./javascript/cards.js"></script>
+</body>
+
+</html>

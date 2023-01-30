@@ -1,0 +1,71 @@
+body{
+    background-image: url(https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80);
+    background-size: 100% 100vh;
+    color: aliceblue;
+    height: 100%;
+}
+
+main{
+    height: 100vh;
+}
+
+input{
+    color: white;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.159);
+    height: 4rem;
+    padding-left: 2rem;
+    border-radius: 2rem 2rem 2rem 2rem;
+}
+
+body>div{
+    background-color: rgba(0, 0, 0, 0.155);
+}
+
+.signbtn{
+    align-self: center;
+    width: 90%;
+    padding-top: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: larger;
+    text-align: center;
+    height: 4rem;
+    border-radius: 2rem 2rem 2rem 2rem;
+    color: black;
+    background-color: rgb(242, 193, 255);
+}
+
+.errMsg{
+    background-color: red;
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.signbtn:hover{
+    color: black;
+    background-color: aliceblue;
+}
+
+.forgotbtn{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.forgotbtn:hover{
+    color: aliceblue;
+    text-decoration: underline;
+}
+
+input::placeholder{
+    color: aliceblue;
+}
+
+form{
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    gap: 2rem;
+    background-color: rgba(0, 0, 0, 0.119);
+    padding: 1rem;
+    border-radius: 2rem 2rem 2rem 2rem;
+}

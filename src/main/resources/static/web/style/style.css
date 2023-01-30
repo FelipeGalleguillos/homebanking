@@ -1,0 +1,201 @@
+body{
+    background-image: url(https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80);
+    background-size: 100% 100vh;
+    color: aliceblue;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.form-select{
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.389);
+    width: 100%;
+    max-width: 350px;
+}
+
+.cardExpired{
+    text-align: center;
+    color: aliceblue;
+    background-color: red;
+    border-radius: .5rem .5rem .5rem .5rem;
+}
+
+.btnDelete{
+    color: rgb(29, 188, 183);
+    border-radius: .5rem .5rem 0rem 0rem;
+    border: none;
+    background-color: black;
+}
+
+.btnDelete:hover{
+    color: aliceblue;
+    background-color: rgb(209, 41, 41);
+}
+
+.btn-close{
+    color: red;
+}
+
+.modal-content{
+    background-color: rgba(240, 248, 255, 0.095);
+    backdrop-filter: blur(10px);
+}
+
+.amountInput{
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.389);
+    width: 100%;
+    height: 2rem;
+    max-width: 350px;
+    border: .4px solid white;
+    border-radius: .2rem .2rem .2rem .2rem;
+}
+
+option{
+    background-color: rgba(0, 0, 0, 0.389);
+}
+
+.textArea{
+    color: aliceblue;
+    height: 2rem;
+    width: 100%;
+    max-width: 350px;
+    background-color: rgba(0, 0, 0, 0.389);
+    border: .4px solid white;
+    border-radius: .2rem .2rem .2rem .2rem;
+}
+
+.textArea::placeholder{
+    color: aliceblue;
+}
+
+
+
+.cardcreated{
+    width: 13rem;
+    height: 8rem;
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.createbtn{
+    text-align: center;
+    padding-top: .2rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(29, 188, 183);
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.createbtn:hover{
+    color: black;
+    background-color: white;
+}
+
+h3{
+    border-left: 5px solid rgb(1, 96, 163); 
+    padding-left: 1rem;
+}
+
+main{
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    min-height: 100vh;
+    padding: .5rem;
+}
+
+.cardscont{
+    color: black;
+    margin-top: 1rem;
+    background-color: rgba(255, 255, 255, 0.629);
+    padding: 1rem;
+    border-radius: 1rem 1rem 1rem 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.cardCont{
+    margin-top: 3rem;
+    padding: 1rem;
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+
+footer{
+    background-color: rgba(0, 0, 0, 0.834);
+    color: white;
+    position: sticky;
+    bottom: 0px;
+    height: 4rem;
+}
+
+.chip .img{
+    width: 4rem;
+    height: 2.6rem;
+    border-radius: .2rem .2rem .2rem .2rem;
+    background-image: url(https://usa.visa.com/dam/VCOM/regional/na/us/pay-with-visa/images/card-chip-800x450.png);
+    background-size: 300% 155%;
+    background-position: -256px -12px;
+}
+
+.chip{
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.445);
+    border-radius: .2rem .2rem .2rem .2rem;
+    
+}
+
+.title{
+    width: fit-content;
+    /* border-bottom: 3px solid rgb(132, 58, 193); */
+}
+
+nav{
+    background-color: rgba(0, 0, 0, 0.677);
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.GOLD{
+    background: rgb(255,217,0);
+    background: linear-gradient(90deg, rgba(255,217,0,1) 52%, rgba(255,132,0,1) 100%);
+}
+
+.TITANIUM{
+    background: rgb(155,244,211);
+    background: linear-gradient(90deg, rgb(196, 243, 226) 0%, rgb(130, 156, 186) 100%);
+}
+
+.SILVER{
+    background: rgb(213,210,210);
+    background: linear-gradient(90deg, rgba(213,210,210,1) 64%, rgba(144,144,144,1) 100%);
+}
+
+.bankCard{
+    font-family: FreeMono, monospace;
+    text-shadow: 0 0 3px rgb(0, 0, 0);
+    border-radius: 1rem 1rem 1rem 1rem;
+    padding: 1rem;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    box-shadow: 4px 5px 7px 1px rgba(0,0,0,0.33);
+    transition: transform .3s;
+}
+
+.bankCard:hover{
+    transform: scale(1.05);
+}
+
+
+
+.date{
+    display: flex;
+    justify-content: space-between;
+}
+.number {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="shortcut icon" href="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="./style/style.css">
+        <title>loan-application</title>
+    </head>
+<body id="app" class="d-flex flex-column align-items-center">
+    <main>
+        <div class="d-flex my-3 justify-content-center animate__animated animate__fadeIn">
+            <div class="mx-3">
+                <img class="" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" style="width: 5rem;" alt=""
+                    srcset="">
+                <img src="https://www.pngmart.com/files/5/Bank-PNG-Transparent.png" style="width: 2.5rem;" alt="">
+            </div>
+            <div class="name my-2">
+                <h3 class="text-center">Welcome {{data.firstName}} {{data.lastName}}</h3>
+            </div>
+            <div class="mx-4 d-flex flex-column align-items-center">
+                <button @click="logout()" class="bg-transparent border-0">
+                    <span style="color:aliceblue;">
+                        <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+                    </span>
+                    <p style="color:aliceblue;">Log out</p>
+                </button>
+            </div>
+        </div>
+        <div class="w-100">
+            <nav class="navbar navbar-dark navbar-expand-lg my-2 animate__animated animate__fadeIn">
+                <div class=" container-fluid">
+                    <img src="" alt="">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse px-4" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a  class="nav-link" href="./accounts.html">accounts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./cards.html">cards</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  class="nav-link" href="./transfers.html">transfers</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="cardscont">
+                <div class="d-flex justify-content-center gap-3">
+                    <h4>LOANS APPLY</h4>
+                </div>
+                <div class="d-flex flex-column align-items-center gap-4">
+                    <p>Account</p>
+                    <select class="form-select" aria-label="Default select example" v-model="accNumber">
+                        <option disabled value="">Account</option>
+                        <option v-for="account in data.accounts" :value="account.number">{{account.number}}</option>
+                    </select>
+                    <p>Loan</p>
+                    <select class="form-select" aria-label="Default select example" v-model="loan">
+                        <option disabled value="">Loans</option>
+                        <option v-for="loan in loans" :value="loan">{{loan.name}} - amount: {{loan.maxAmount}}</option>
+                    </select>
+                    <p>Amount</p>
+                    <input class="amountInput" v-model="amount" type="number" name="Amount">
+                    <p>Payments</p>
+                    <select v-if="amount != 0" class="form-select" aria-label="Default select example" v-model="payment">
+                        <option disabled value="">payments</option>
+                        <option v-for="payment in loan.payments" :value="payment">{{payment}} payments of ${{Math.round(((loan.percentage/100*amount)+amount)/payment)}}</option>
+                    </select>
+
+                    <a class="createbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Apply</a>
+                    <p style="background-color: red; border-radius: .7rem; padding: .2rem;" v-if="msg.length != 0">{{msg}}</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center text-white">
+                    Confirm loan apply?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button @click="apply()" type="button" class="btn btn-primary" data-bs-dismiss="modal">confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="w-100 d-flex">
+        <div>
+            <img class="m-2" src="https://mindhubweb.com/img/logo_blanco.ca1738c0.webp" style="width: 5rem;" alt=""
+                srcset="">
+                <img src="https://www.pngmart.com/files/5/Bank-PNG-Transparent.png" style="width: 2.5rem;" alt="">
+        </div>
+        <!-- <div>
+            <p>
+                <i class="fa-brands fa-instagram"></i>
+            </p>
+            <i class="fa-brands fa-whatsapp"></i>
+        </div> -->
+    </footer>
+    
+    <script src="https://kit.fontawesome.com/3098ea35a3.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./javascript/loan-application.js"></script>
+</body>
+</html>

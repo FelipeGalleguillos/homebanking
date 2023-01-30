@@ -1,0 +1,45 @@
+
+Vue.createApp({
+    data(){
+        return{
+            loanName:'',
+            amount:null,
+            percentage:null,
+            payment:null,
+            payments:[],
+            loans:[]
+        }
+    },
+    created(){
+        this.loadData()
+    },
+    methods:{
+        loadData(){
+            axios.get('/rest/loans')
+            .then(data=>{
+            console.log(data)
+            this.loans=data.data._embedded.loans
+            })
+            .catch(err=>console.log(err))
+        },
+        createLoan(){
+            axios.post('/rest/loans',{
+                name:this.loanName,
+                maxAmount:this.amount,
+                percentage:this.percentage,
+                payments:this.payments,
+            })
+            .then(res=>loadData())
+            .catch(err=>console.log(err))
+        },
+        addPayment(){
+            this.payments.push(this.payment)
+        },
+        logOut(){
+            axios.post('/api/logout')
+            .then(response => {
+                window.location.href = "http://localhost:8080/web/index.html"
+            })
+        },
+    }
+}).mount('#app')
