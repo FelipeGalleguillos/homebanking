@@ -12,7 +12,7 @@ Vue.createApp({
         axios.get('/api/clients/current')
         .then(data=>{
             this.data=data.data
-            this.debit=data.data.cards.filter(card=>card.type=="DEBITO")
+            this.debit=data.data.cards.filter(card=>card.type=="DEBIT")
             .map(card=>{
                 return{
                     id:card.id,
@@ -25,7 +25,7 @@ Vue.createApp({
                     cvv:card.cvv
                 }
             })
-            this.credit=data.data.cards.filter(card=>card.type=="CREDITO")
+            this.credit=data.data.cards.filter(card=>card.type=="CREDIT")
             .map(card=>{
                 return{
                     id:card.id,
