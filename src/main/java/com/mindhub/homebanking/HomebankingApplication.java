@@ -31,24 +31,24 @@ public class HomebankingApplication {
 			// save a couple of customers
 			Client client1 = new Client("Melba","Morel","melba@mindhub.com", paswordEncoder.encode("melba123"));
 			Client client2 = new Client("Felipe","Galleguillos","felipe@gmail.com", paswordEncoder.encode("felipe123"));
-			Account account1 = new Account("VIN0001", LocalDate.now(),5000,AccountType.AHORRO);
-			Account account2 = new Account("VIN0002", LocalDate.now().plusDays(1),5000,AccountType.CORRIENTE);
-			Account account3 = new Account("VIN0003", LocalDate.now().minusDays(1),4800,AccountType.AHORRO);
-			Account account4 = new Account("VIN0004", LocalDate.now().plusDays(2),10000,AccountType.CORRIENTE);
+			Account account1 = new Account("VIN0001", LocalDate.now(),5000,AccountType.SAVINGS);
+			Account account2 = new Account("VIN0002", LocalDate.now().plusDays(1),5000,AccountType.CURRENT);
+			Account account3 = new Account("VIN0003", LocalDate.now().minusDays(1),4800,AccountType.SAVINGS);
+			Account account4 = new Account("VIN0004", LocalDate.now().plusDays(2),10000,AccountType.CURRENT);
 
-			Transaction transaction1 = new Transaction(TransactionType.CREDITO,300,"compras del supermercado",LocalDateTime.now());
-			Transaction transaction2 = new Transaction(TransactionType.CREDITO,150,"compras del supermercado",LocalDateTime.now());
-			Transaction transaction3 = new Transaction(TransactionType.DEBITO,250,"compras del supermercado",LocalDateTime.now());
-			Transaction transaction4 = new Transaction(TransactionType.CREDITO,300,"compras del supermercado",LocalDateTime.now());
+			Transaction transaction1 = new Transaction(TransactionType.CREDIT,300,"compras del supermercado",LocalDateTime.now());
+			Transaction transaction2 = new Transaction(TransactionType.CREDIT,150,"compras del supermercado",LocalDateTime.now());
+			Transaction transaction3 = new Transaction(TransactionType.DEBIT,250,"compras del supermercado",LocalDateTime.now());
+			Transaction transaction4 = new Transaction(TransactionType.CREDIT,300,"compras del supermercado",LocalDateTime.now());
 
-			Transaction transaction5 = new Transaction(TransactionType.DEBITO,1000,"compras del supermercado",LocalDateTime.now());
-			Transaction transaction6 = new Transaction(TransactionType.CREDITO,150,"compras del supermercado",LocalDateTime.now());
-			Transaction transaction7 = new Transaction(TransactionType.DEBITO,250,"compras del supermercado",LocalDateTime.now());
-			Transaction transaction8 = new Transaction(TransactionType.CREDITO,110,"compras del supermercado",LocalDateTime.now());
+			Transaction transaction5 = new Transaction(TransactionType.DEBIT,1000,"compras del supermercado",LocalDateTime.now());
+			Transaction transaction6 = new Transaction(TransactionType.CREDIT,150,"compras del supermercado",LocalDateTime.now());
+			Transaction transaction7 = new Transaction(TransactionType.DEBIT,250,"compras del supermercado",LocalDateTime.now());
+			Transaction transaction8 = new Transaction(TransactionType.CREDIT,110,"compras del supermercado",LocalDateTime.now());
 
-			Card card1 = new Card(client1.getFirstName().concat(" "+client1.getLastName()),CardType.DEBITO,CardColor.GOLD,"3325-7557-1432-8653",564,LocalDate.now());
-			Card card2 = new Card(client1.getFirstName().concat(" "+client1.getLastName()),CardType.CREDITO,CardColor.TITANIUM,"1286-6977-3546-4957",126,LocalDate.now());
-			Card card3 = new Card(client2.getFirstName().concat(" "+client2.getLastName()),CardType.CREDITO,CardColor.SILVER,"3656-6787-1938-4432",208,LocalDate.now());
+			Card card1 = new Card(client1.getFirstName().concat(" "+client1.getLastName()),CardType.DEBIT,CardColor.GOLD,"3325-7557-1432-8653",564,LocalDate.now());
+			Card card2 = new Card(client1.getFirstName().concat(" "+client1.getLastName()),CardType.CREDIT,CardColor.TITANIUM,"1286-6977-3546-4957",126,LocalDate.now());
+			Card card3 = new Card(client2.getFirstName().concat(" "+client2.getLastName()),CardType.CREDIT,CardColor.SILVER,"3656-6787-1938-4432",208,LocalDate.now());
 
 			Loan loan1 = new Loan("Hipotecario",500000,20);
 			List<Integer> list = new ArrayList<>();

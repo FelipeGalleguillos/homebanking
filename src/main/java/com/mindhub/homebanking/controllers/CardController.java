@@ -42,10 +42,10 @@ public class CardController {
         if(client.getCards().stream().toArray().length >= 6){
             return new ResponseEntity<>("limit of cards reached", HttpStatus.FORBIDDEN);
         }
-        if(type.equals("CREDITO") && client.getCards().stream().filter(card->card.getType().toString().equals(type)).toArray().length >= 3){
+        if(type.equals("CREDIT") && client.getCards().stream().filter(card->card.getType().toString().equals(type)).toArray().length >= 3){
             return new ResponseEntity<>("can't create another credit card", HttpStatus.FORBIDDEN);
         }
-        if(type.equals("DEBITO") && client.getCards().stream().filter(card->card.getType().toString().equals(type)).toArray().length >= 3){
+        if(type.equals("DEBIT") && client.getCards().stream().filter(card->card.getType().toString().equals(type)).toArray().length >= 3){
             return new ResponseEntity<>("can't create another debit card", HttpStatus.FORBIDDEN);
         }
         if(client.getCards().stream().filter(card->card.getType().toString().equals(type) && card.getColor().toString().equals(color)).toArray().length > 0){
@@ -59,10 +59,10 @@ public class CardController {
         CardType cardType = null;
         CardColor cardColor = null;
 
-        if(type.equals("CREDITO")){
-            cardType = CardType.CREDITO;
+        if(type.equals("CREDIT")){
+            cardType = CardType.CREDIT;
         }else{
-            cardType = CardType.DEBITO;
+            cardType = CardType.DEBIT;
         }
 
         if(color.equals("GOLD")){

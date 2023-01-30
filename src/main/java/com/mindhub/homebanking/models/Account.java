@@ -63,7 +63,7 @@ public class Account {
 
     public void addTransaction(Transaction transaction) {
 
-        if (transaction.getType() == TransactionType.CREDITO){
+        if (transaction.getType() == TransactionType.CREDIT){
             this.setBalance(this.getBalance() + transaction.getAmount());
         }else{
             this.setBalance(this.getBalance() - transaction.getAmount());

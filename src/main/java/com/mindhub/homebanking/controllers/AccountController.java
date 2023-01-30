@@ -57,10 +57,10 @@ public class AccountController {
             return new ResponseEntity<>("can't create another account", HttpStatus.FORBIDDEN);
         }
 
-        if(accountType.equals("CORRIENTE")){
-            type = AccountType.CORRIENTE;
+        if(accountType.equals("CURRENT")){
+            type = AccountType.CURRENT;
         }else{
-            type = AccountType.AHORRO;
+            type = AccountType.SAVINGS;
         }
 
         String number = "VIN" + ((int) ((Math.random() * (999999 - 100000)) + 100000));

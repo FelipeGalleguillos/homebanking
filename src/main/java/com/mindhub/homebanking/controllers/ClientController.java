@@ -78,7 +78,7 @@ public class ClientController {
         }
 
         String number = "VIN" + Integer.toString((int) ((Math.random() * (999999 - 100000)) + 100000));
-        Account account = new Account(number, LocalDate.now(), 0, AccountType.CORRIENTE);
+        Account account = new Account(number, LocalDate.now(), 0, AccountType.CURRENT);
         Client client = new Client(firstName, lastName, email, passwordEncoder.encode(password));
         client.addAccount(account);
         account.setClient(client);

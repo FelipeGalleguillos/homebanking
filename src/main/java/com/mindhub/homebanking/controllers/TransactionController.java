@@ -98,8 +98,8 @@ public class TransactionController {
             return new ResponseEntity<>("Origin account same as destiny account",HttpStatus.FORBIDDEN);
         }
 
-        Transaction debitTransaction = new Transaction(TransactionType.DEBITO,amount,"Destiny acc:"+destinyAccount.getNumber()+" - "+description, LocalDateTime.now());
-        Transaction creditTransaction = new Transaction(TransactionType.CREDITO,amount,"Origin acc:"+originAccount.getNumber()+" - "+description, LocalDateTime.now());
+        Transaction debitTransaction = new Transaction(TransactionType.DEBIT,amount,"Destiny acc:"+destinyAccount.getNumber()+" - "+description, LocalDateTime.now());
+        Transaction creditTransaction = new Transaction(TransactionType.CREDIT,amount,"Origin acc:"+originAccount.getNumber()+" - "+description, LocalDateTime.now());
 
         originAccount.addTransaction(debitTransaction);
         debitTransaction.setAccount(originAccount);

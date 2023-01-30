@@ -71,8 +71,8 @@
                     </select>
                     <select class="form-select" aria-label="Default select example" v-model="cardType">
                         <option disabled value="">card type</option>
-                        <option value="DEBITO">DEBITO</option>
-                        <option value="CREDITO">CREDITO</option>
+                        <option value="DEBIT">DEBIT</option>
+                        <option value="CREDIT">CREDIT</option>
                     </select>
                     <a @click="create()" class="createbtn">Create card</a>
                     <p style="background-color: red; border-radius: .7rem; padding: .2rem;" v-if="msg.length != 0">{{msg}}</p>

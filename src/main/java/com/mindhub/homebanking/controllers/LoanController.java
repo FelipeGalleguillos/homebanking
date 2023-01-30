@@ -67,7 +67,7 @@ public class LoanController {
         }
 
         ClientLoan clientLoan = new ClientLoan(loanAplication.getAmount()+(loanAplication.getAmount()* loan.getPercentage()/100),loanAplication.getPayment(),LocalDate.now(),client,loan);
-        Transaction transaction = new Transaction(TransactionType.CREDITO, loanAplication.getAmount(),loan.getName()+" - loan approved", LocalDateTime.now());
+        Transaction transaction = new Transaction(TransactionType.CREDIT, loanAplication.getAmount(),loan.getName()+" - loan approved", LocalDateTime.now());
 
         client.addLoan(clientLoan);
         clientLoan.setClient(client);
