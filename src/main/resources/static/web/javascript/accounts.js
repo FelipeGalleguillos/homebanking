@@ -4,7 +4,8 @@ Vue.createApp({
         return{
             accountType:'',
             data:[],
-            msg:''
+            msg:'',
+            accounts:[]
         }
     },
     created(){
@@ -15,7 +16,8 @@ Vue.createApp({
             axios.get('/api/clients/current')
             .then(data=>{
                 this.data = data.data
-                console.log(this.data);
+                this.accounts = this.data.accounts 
+                console.log(this.accounts);
             })
             .catch(err=>console.log(err))
         },

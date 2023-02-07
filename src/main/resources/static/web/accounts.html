@@ -146,26 +146,26 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- <div class="d-flex gap-3 flex-wrap justify-content-center">
+                    <div class="d-flex gap-3 flex-wrap justify-content-center">
                         <div class="transactions">
                             <h6 class="text-center">TRANSACTIONS</h6>
                             <div>
                                 <table class="transTable">
                                     <tbody>
-                                        <tr class="text-center">
-                                            <td> <strong>today</strong></td>
-                                            <td>Cinema</td>
-                                            <td class="text-success">+1000</td>
+                                        <tr v-if="accounts[0].transactions.length==0">
+                                            <td>no transactions yet...</td>
                                         </tr>
-                                        <tr class="text-center">
-                                            <td> <strong>today</strong></td>
-                                            <td>Cinema</td>
-                                            <td class="text-danger">-1000</td>
+                                        <tr v-if="accounts[0].transactions[0]!=null" class="text-center">
+                                            <td> <strong>{{accounts[0].transactions[0].type}}</strong></td>
+                                            <td :class="`${accounts[0].transactions[0].type}`">{{accounts[0].transactions[0].amount}}</td>
                                         </tr>
-                                        <tr class="text-center">
-                                            <td> <strong>today</strong></td>
-                                            <td>Cinema</td>
-                                            <td class="text-success">+1000</td>
+                                        <tr v-if="accounts[0].transactions[1]!=null" class="text-center">
+                                            <td> <strong>{{accounts[0].transactions[1].type}}</strong></td>
+                                            <td :class="`${accounts[0].transactions[1].type}`">{{accounts[0].transactions[1].amount}}</td>
+                                        </tr>
+                                        <tr v-if="accounts[0].transactions[2]!=null" class="text-center">
+                                            <td> <strong>{{accounts[0].transactions[2].type}}</strong></td>
+                                            <td :class="`${accounts[0].transactions[2].type}`">{{accounts[0].transactions[1].amount}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -195,7 +195,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
             <div class="cardCont">
